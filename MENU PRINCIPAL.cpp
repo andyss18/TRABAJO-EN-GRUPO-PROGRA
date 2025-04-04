@@ -8,7 +8,7 @@ int main() {
 
     while (true) {
         cout << "Seleccione un programa a ejecutar:" << endl;
-        cout << "12. programa numeros decimales a hexadecimales"<<endl;
+        cout << "12. programa numeros decimales a hexadecimales"<< endl;
 		cout << "13. Programa que dibuje figuras" << endl;
         cout << "14. Programa que mueva un punto" << endl;
         cout << "15. Cajero automatico" << endl;
