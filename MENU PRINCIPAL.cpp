@@ -8,7 +8,8 @@ int main() {
 
     while (true) {
         cout << "Seleccione un programa a ejecutar:" << endl;
-        cout << "13. Programa que dibuje figuras" << endl;
+        cout << "12. programa numeros decimales a hexadecimales"<<endl;
+		cout << "13. Programa que dibuje figuras" << endl;
         cout << "14. Programa que mueva un punto" << endl;
         cout << "15. Cajero automatico" << endl;
         cout << "16. Programa que calculo la hipotenusa" << endl;
@@ -17,7 +18,12 @@ int main() {
         cin >> opcion;
 
         switch (opcion) {
-            case 13:
+           
+		    case 12:
+                system("g++ codigo_12_Francisco.cpp -o codigo_12_Francisco & codigo_12_Francisco");  // Compila y ejecuta
+                break;
+		   
+		    case 13:
                 system("g++ codigo_13_andy.cpp -o codigo_13_andy & codigo_13_andy");  // Compila y ejecuta
                 break;
             case 14:
