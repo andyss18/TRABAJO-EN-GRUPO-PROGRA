@@ -5,7 +5,6 @@ using namespace std;
 
 int main() {
     int opcion;
-
     while (true) {
     	system("cls");
         cout << "Seleccione un programa a ejecutar:" << endl;
