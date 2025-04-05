@@ -21,7 +21,6 @@ int main() {
         cout << "21. Salir" << endl;
         cout << "Ingrese una opción: ";
         cin >> opcion;
-
         switch (opcion) {
             case 1:
                 system("g++ codigo_01_Daniel.cpp -o codigo_01_Daniel & codigo_01_Daniel");  // Compila y ejecuta
