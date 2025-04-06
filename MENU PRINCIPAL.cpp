@@ -24,7 +24,7 @@ int main() {
         cout << "15. Cajero automatico" << endl;
         cout << "16. Programa que calculo la hipotenusa" << endl;
         cout << "17. Factores de los numeros"<<endl; 
-        cout << "18. Agenda Telefonica" << endl; //Daniel Huertas
+        cout << "18. Desarrollo del Binomio" << endl; //Daniel Huertas
         cout << "19. Programa contador del 1 al 100"<<endl;
         cout << "20. Palabra al reves" <<endl;
 		cout << "21. Salir" << endl;

@@ -1,101 +1,93 @@
 #include <iostream>
-#include <vector>
-#include <string>
 
 using namespace std;
 
-// Estructura que almacena el contacto
-struct Contacto {
-    string nombre;
-    string telefono;};
+unsigned long long factorial(int n) {
+    unsigned long long resultado = 1;
+    for (int i = 1; i <= n; ++i) {
+        resultado *= i;
+    }
+    return resultado;
+}
+unsigned long long calculo_coeficientes(int n, int k) {
+    return factorial(n) / (factorial(k) * factorial(n - k));
+}
 
-// Clase para gestionar la agenda
-class Agenda_Telefonica {
-private:
-    vector<Contacto> contactos;
+// Funcion para calcular la extension del binomio
+void extension(int exponente) {
+    unsigned long long coeficientes[66]; // Asumimos un tamano maximo de 65 para inicializar el array
 
-public:
-    // Método para agregar un contacto
-    void Agregar_Contacto (string nombre, string telefono) {
-        Contacto Nuevo_Contacto;
-        Nuevo_Contacto.nombre = nombre;
-        Nuevo_Contacto.telefono = telefono;
-        contactos.push_back(Nuevo_Contacto);} //Agrega el contacto al final de la lista
-    
-    // Método para mostrar todos los contactos
-    void Mostar_Contactos() {
-        if (contactos.empty()) {     //comprueba si la cadena esta vacia
-            cout << "No hay contactos en la agenda." << endl;
-            return;}
-
-        cout << "Lista de Contactos:" << endl;
-        for (const auto& contacto : contactos) {
-            cout << "Nombre: " << contacto.nombre << " | Telefono: " << contacto.telefono << endl<<endl;}
+    // Calcular los coeficientes binomiales
+    for (int k = 0; k <= exponente; ++k) {
+        coeficientes[k] = calculo_coeficientes(exponente, k);
     }
 
-    // Método para buscar un contacto por nombre
-    void Buscar_Contacto(string nombre) {
-        bool encontrado = false;
-        for (const auto& contacto : contactos) {
-            if (contacto.nombre == nombre) {
-                cout << "Contacto encontrado: " << endl;
-                cout << "Nombre: " << contacto.nombre << " | Telefono: " << contacto.telefono << endl<<endl;
-                encontrado = true;
-                break;}
+    // Imprimir el desarrollo del binomio
+    system("cls");
+    cout << endl << "        Desarrollo del binomio:" << endl << endl;
+    for (int k = 0; k <= exponente; ++k) {
+        if (k > 0) cout << " + ";
+        if (coeficientes[k] > 1) {
+            cout << coeficientes[k];
         }
-        if (!encontrado) {
-            cout << "No se encontro el contacto con el nombre: " << nombre << endl;}
+        if (exponente - k > 0) {
+            cout << "a";
+            if (exponente - k > 1) cout << "^" << (exponente - k);
+        }
+        if (k > 0) {
+            cout << "b";
+            if (k > 1) cout << "^" << k;
+        }
     }
-};
+    cout << endl << endl;
+    system("pause");}
 
 int main() {
-    Agenda_Telefonica agenda;
-    int opcion;
-    string nombre, telefono;
-
+    int exponente, op;
     do {
-        // Menú de opciones
         system("cls"); // Limpiar pantalla
-        cout << "\n Agenda Telefonica" << endl;
-        cout << "-----------------------" << endl;
-        cout << "1. Agregar contacto" << endl;
-        cout << "2. Mostrar contactos" << endl;
-        cout << "3. Buscar contacto" << endl;
-        cout << "4. Salir" << endl;
-        cout << "Elija una opcion: ";
-        cin >> opcion;
+        cout << "Desarrollo del Binomio" << endl;
+        cout << "-------------------" << endl;
+        cout << "1 - Ingresar potencia a desarrollar" << endl;
+        cout << "2 - Salir" << endl;
+        cout << "Ingrese una opcion: ";
+        cin >> op;
 
-        switch(opcion) {
-            case 1:
-            	system("cls"); 
-                cout << "Ingrese el nombre del contacto: ";
-                cin.ignore(); 
-                getline(cin, nombre);
-                cout << "Ingrese el numero de telefono: ";
-                getline(cin, telefono);
-                agenda.Agregar_Contacto(nombre, telefono);
-                cout << "Contacto agregado con exito!" << endl;
+        switch (op) {
+            case 1: {
+            	system("cls");
+                cout << "Este programa calcula el desarrollo de un binomio entre 1 y 65" << endl << endl;
+                cout << "Ingrese el exponente del binomio que desea desarrollar: ";
+                cin >> exponente;
+                if (exponente <= 0) {
+                	system("cls");
+                    cout << endl << "Error: El exponente debe ser un numero entero positivo." << endl << endl;
+                    system("pause");
+                    break;
+                }
+                if (exponente >= 66) {
+                	system("cls");
+                    cout << endl << "Error: El numero no puede ser mayor que 65" << endl << endl;
+                    system("pause");
+                    break;
+                }
+                extension(exponente);
+                break;
+            }
+            case 2: {
+                system("cls"); 
+                cout << "Saliendo del sistema..." << endl;
+                break;
+            }
+            default: {
+                system("cls"); 
+                cout << "Opcion no valida! seleccione una opcion valida." << endl;
                 system("pause");
                 break;
-            case 2:
-            	system("cls");
-                agenda.Mostar_Contactos();
-                system("pause");
-                break;
-            case 3:
-            	system("cls");
-                cout << "Ingrese el nombre del contacto a buscar: ";
-                cin.ignore(); 
-                getline(cin, nombre);
-                agenda.Buscar_Contacto(nombre);
-                system("pause");
-                break;
-            case 4:
-            	system("cls");
-                cout << "Saliendo del programa...";
-                break;
-            default:
-                cout << "Opción no valida. Intente nuevamente." << endl;}
-    } while (opcion != 4);
-return 0;} // El bucle sigue hasta que el usuario ingresa 4
+            }
+        }
+    } while (op != 2); // El bucle sigue hasta que el usuario ingresa 2 para salir
+
+    return 0;
+}
 
