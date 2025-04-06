@@ -1,44 +1,38 @@
 #include <iostream>
-#include <vector>
 #include <string>
 
 using namespace std;
 
-// Función que convierte un número arábigo a romano
-string convertirARomanos(int numero) {
-    // Lista de pares ordenados de valores y sus correspondientes representaciones romanas
-    vector<pair<int, string>> valores = {
-        {1000, "M"}, {900, "CM"}, {500, "D"}, {400, "CD"},
-        {100, "C"},  {90,  "XC"}, {50,  "L"}, {40,  "XL"},
-        {10,  "X"},  {9,   "IX"}, {5,   "V"}, {4,   "IV"}, {1, "I"}
-    };
+string convertirARomano(int numero) {
 
-    string resultado;
-    
-    // Recorremos la lista, restando el valor correspondiente y añadiendo la notación romana
-    for (auto const & par : valores) {
-        while (numero >= par.first) {
-            resultado += par.second;
-            numero -= par.first;
+    int valores[] =    {1000, 900, 500, 400, 100,  90,  50,  40,  10,   9,   5,   4,   1};
+    string romanos[] = {"M", "CM","D", "CD","C", "XC","L", "XL","X", "IX","V", "IV","I"};
+
+    string resultado = "";
+
+    // Mientras el número sea mayor que 0
+    for (int i = 0; i < 13; i++) {
+        while (numero >= valores[i]) {
+            resultado += romanos[i];
+            numero -= valores[i];
         }
     }
-    
+
     return resultado;
 }
 
 int main() {
     int numero;
-    
-    cout << "Ingrese un número arábigo (mínimo 1,000): ";
+
+    cout << "Ingresa un número (mínimo 1000): ";
     cin >> numero;
-    
+
     if (numero < 1000) {
-        cout << "El número debe ser al menos 1,000." << endl;
-        return 1;
+        cout << "El número debe ser mayor o igual a 1000." << endl;
+    } else {
+        string romano = convertirARomano(numero);
+        cout << "Número romano: " << romano << endl;
     }
-    
-    string romano = convertirARomanos(numero);
-    cout << "El número " << numero << " en números romanos es: " << romano << endl;
-    
+
     return 0;
 }
