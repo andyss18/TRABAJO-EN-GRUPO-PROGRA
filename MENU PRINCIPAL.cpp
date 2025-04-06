@@ -13,6 +13,9 @@ int main() {
         cout << "4. Determinar si una palabra o un numero es palindromo"<<endl;
         cout << "5. Conversion de numeros arabigos a romanos"<<endl; 
         cout << "6. Conversion de numeros enteros a letras"<<endl;
+        cout << "7. Conversion de numeros enteros con decimal a letras"<<endl; 
+        cout << "8. Una tabla de multiplicar"<<endl; 
+        cout << "9. Todas las tablas de multiplicar del 1 al 10"<<endl; 
         cout << "10. Crea forma grafica la multiplicacion manual"<<endl; 
 		cout << "11. Programa de conversion de numeros decimales a binario"<<endl;
 		cout << "12. programa numeros decimales a hexadecimales"<<endl;
@@ -27,9 +30,6 @@ int main() {
         cout << "Ingrese una opcion: ";
         cin >> opcion;
         switch (opcion) {
-
-            
-
             case 1:
                 system("g++ codigo_01_Daniel.cpp -o codigo_01_Daniel & codigo_01_Daniel");  // Compila y ejecuta
                 break;
@@ -47,6 +47,15 @@ int main() {
                 break;
             case 6:
                 system("g++ codigo_06_aron.cpp -o codigo_06_aron & codigo_06_aron");  
+                break;
+            case 7:
+                system("g++ codigo_7_anthony.cpp -o codigo_7_anthony & codigo_7_anthony");  // Compila y ejecuta
+                break;
+            case 8:
+                system("g++ codigo_8_anthony.cpp -o codigo_8_anthony & codigo_8_anthony");  // Compila y ejecuta
+                break;
+            case 9:
+                system("g++ codigo_9_anthony.cpp -o codigo_9_anthony & codigo_9_anthony");  // Compila y ejecuta
                 break;
 	        case 10:
                 system("g++ codigo_10_Francisco.cpp -o codigo_10_Francisco & codigo_10_Francisco"); 
@@ -68,6 +77,9 @@ int main() {
                 break;
             case 16:
                 system("g++ codigo_16_andy.cpp -o codigo_16_andy && codigo_16_andy");  // Compila y ejecuta
+                break;
+            case 17:
+                system("g++ codigo_Libre_Anthony.cpp -o codigo_Libre_Anthony & codigo_Libre_Anthony");  
                 break;
             case 18:
                 system("g++ codigo_libre_Daniel.cpp -o codigo_libre_Daniel & codigo_libre_Daniel");  // Compila y ejecuta
